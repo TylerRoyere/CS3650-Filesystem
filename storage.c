@@ -389,6 +389,9 @@ storage_rename(const char *from, const char *to)
         return rv;
     }
 
+    // if 'to' already exists, delete it
+    directory_delete(to_dir_node, to_file);
+
     // now that we have both directories, delete from, add to
     rv = directory_put(to_dir_node, to_file, move_inode);
     if(rv) {
