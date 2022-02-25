@@ -1,0 +1,10 @@
+4 pages of the filesystem will be taken up by
+1st page:
+ - super block information (size, root dir location, etc)
+ - inode / data-block bitmap (256-bits each = 64 bytes)
+   - honestly, could probably do without the bitmap, makes it very
+     to do lookups, let do that for now
+2nd - 4th pages:
+ - inodes (allocated as needed)
+5th+ page:
+ - data blocks
